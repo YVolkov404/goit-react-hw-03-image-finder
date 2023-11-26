@@ -39,9 +39,18 @@ export const GlobalStyle = createGlobalStyle`
       padding: 0;
     }
 
+    ul {
+      list-style: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
     ${
       '' /* :focus {
-      outline: 0;
+    outline: 0;
     } */
     }
 
