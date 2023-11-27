@@ -10,29 +10,35 @@ export const LargeImage = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  object-fit: cover; */
 `;
 
 export const customStyles = {
-  overlay: {
+  opacity: {
     position: 'fixed',
     top: '0px',
     left: '0px',
+    right: '0',
+    bottom: '0',
     width: '100vw',
     height: '100vh',
     background: 'rgba(0, 0, 0, 0.25)',
+    opacity: '1',
+    transition: `opacity 250ms cubic-bezier(0.4, 0, 0.2, 1)`,
+    afterOpen: {
+      opacity: '0',
+    },
   },
 
   content: {
     position: 'absolute',
-    width: 'auto',
-    height: 'auto',
+    overflow: 'auto',
     padding: '0px',
     border: 'none',
     background: 'transparent',
     zIndex: '99',
     inset: '0px',
+    beforeClose: {
+      opacity: '1',
+    },
   },
 };

@@ -6,10 +6,10 @@ ReactModal.setAppElement('#root');
 export const Modal = ({ largeImageURL, closeModal, modalIsOpen }) => {
   return (
     <ReactModal
-      style={customStyles}
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      shouldCloseOnOverlayClick={false}
+      style={customStyles}
+      shouldCloseOnOverlayClick={true}
     >
       <LargeImage src={largeImageURL} />
     </ReactModal>
