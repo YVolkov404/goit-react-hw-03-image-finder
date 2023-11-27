@@ -12,8 +12,20 @@ export const LargeImage = styled.img`
   transform: translate(-50%, -50%);
 `;
 
-export const customStyles = {
-  opacity: {
+export const className = {
+  ReactModal__Overlay: {
+    position: 'absolute',
+    overflow: 'auto',
+    padding: '0px',
+    border: 'none',
+    background: 'transparent',
+    zIndex: '99',
+    inset: '0px',
+  },
+};
+
+export const overlayClassName = {
+  ReactModal__Overlay: {
     position: 'fixed',
     top: '0px',
     left: '0px',
@@ -24,21 +36,13 @@ export const customStyles = {
     background: 'rgba(0, 0, 0, 0.25)',
     opacity: '1',
     transition: `opacity 250ms cubic-bezier(0.4, 0, 0.2, 1)`,
-    afterOpen: {
-      opacity: '0',
-    },
   },
 
-  content: {
-    position: 'absolute',
-    overflow: 'auto',
-    padding: '0px',
-    border: 'none',
-    background: 'transparent',
-    zIndex: '99',
-    inset: '0px',
-    beforeClose: {
-      opacity: '1',
-    },
+  'ReactModal__Overlay--after-open': {
+    opacity: '0',
+  },
+
+  'ReactModal__Overlay--before-close': {
+    opacity: '1',
   },
 };
