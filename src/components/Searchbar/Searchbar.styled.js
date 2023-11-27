@@ -57,10 +57,9 @@ export const Logo = styled.span`
   color: #ffe194;
   text-decoration-color: #4c4c6d;
   text-decoration-line: underline;
-  text-decoration-thickness: 4px;
+  text-decoration-thickness: 3px;
   text-underline-offset: 5px;
-  text-decoration-style: dotted;
-  flex-grow: 2;
+  text-decoration-style: solid;
 `;
 
 export const Icon = styled(SiOpensearch)`

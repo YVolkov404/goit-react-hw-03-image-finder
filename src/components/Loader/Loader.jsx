@@ -1,17 +1,18 @@
-import { Watch } from 'react-loader-spinner';
+import { ThreeCircles } from 'react-loader-spinner';
 
 export const Loader = () => {
   return (
-    <Watch
-      width="44"
+    <ThreeCircles
       height="44"
-      radius="48"
-      color="#4c4c6d"
-      ariaLabel="watch-loading"
-      wrapperStyle={{
-        marginRight: 50,
-      }}
-      wrapperClassName=""
+      width="44"
+      color="#4fa94d"
+      wrapperStyle={{}}
+      wrapperClass=""
+      // visible={true}
+      ariaLabel="three-circles-rotating"
+      outerCircleColor="#ffe194"
+      innerCircleColor="#ffe194"
+      middleCircleColor="#4c4c6d"
     />
   );
 };

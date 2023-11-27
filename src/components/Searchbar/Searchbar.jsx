@@ -31,8 +31,8 @@ export const Searchbar = props => {
     <Formik
       initialValues={{ text: '' }}
       validationSchema={searchbarSchema}
-      onSubmit={async (values, actions) => {
-        await props.onSubmit(values);
+      onSubmit={(values, actions) => {
+        props.onSubmit(values);
         actions.resetForm();
       }}
     >

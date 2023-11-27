@@ -9,6 +9,7 @@ export const Modal = ({ largeImageURL, closeModal, modalIsOpen }) => {
       style={customStyles}
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
+      shouldCloseOnOverlayClick={false}
     >
       <LargeImage src={largeImageURL} />
     </ReactModal>

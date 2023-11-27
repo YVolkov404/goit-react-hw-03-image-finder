@@ -1,5 +1,5 @@
-// import toaster, { Toaster } from 'react-hot-toast';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { notiflixSettings } from './notiflix';
 import { Component } from 'react';
 import { Searchbar, Logotype } from './Searchbar/Searchbar';
 import { Container, Header } from './App.styled';
@@ -21,17 +21,13 @@ export class App extends Component {
     const { query } = this.state;
 
     try {
-      this.setState({ isLoading: true });
       const response = await FetchImages(query);
       const images = response.hits;
 
       this.setState({
         images: images,
       });
-    } catch (error) {
-    } finally {
-      this.setState({ isLoading: false });
-    }
+    } catch (error) {}
   }
 
   searchQueryHandler = searchQuery => {
@@ -41,7 +37,7 @@ export class App extends Component {
       query: query,
       images: [],
       page: 1,
-      isLoading: true,
+      isLoading: false,
     });
   };
 
@@ -59,7 +55,6 @@ export class App extends Component {
 
     try {
       if (prevState.query !== query || prevState.page !== page) {
-        // this.setState({ isLoading: true });
         const response = await FetchImages(query, page);
 
         const images = response.hits;
@@ -67,17 +62,22 @@ export class App extends Component {
 
         const total = Math.ceil(totalHits / 12);
 
+        if (total === 0) {
+          Notify.info(
+            'Sorry! There are no available images to display',
+            notiflixSettings
+          );
+        }
+
         this.setState(prevState => {
           return {
             images: [...prevState.images, ...images],
             total: total,
+            isLoading: false,
           };
         });
       }
-    } catch (error) {
-    } finally {
-      this.setState({ isLoading: false });
-    }
+    } catch (error) {}
   }
 
   render() {

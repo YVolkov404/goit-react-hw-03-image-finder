@@ -10,7 +10,9 @@ export const LargeImage = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  object-fit: cover;
+  /* transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: cover; */
 `;
 
 export const customStyles = {
@@ -25,12 +27,12 @@ export const customStyles = {
 
   content: {
     position: 'absolute',
-    width: '100vw',
-    height: '100vh',
+    width: 'auto',
+    height: 'auto',
     padding: '0px',
     border: 'none',
     background: 'transparent',
-    zIndex: '999',
+    zIndex: '99',
     inset: '0px',
   },
 };
