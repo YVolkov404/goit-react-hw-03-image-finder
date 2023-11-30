@@ -6,7 +6,7 @@ import { Container, Header } from './App.styled';
 import { LoadMoreButton } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-import { FetchImages } from './Api';
+import { FetchImages } from '../services/Api';
 
 export class App extends Component {
   state = {
@@ -37,7 +37,6 @@ export class App extends Component {
       query: query,
       images: [],
       page: 1,
-      isLoading: true,
     });
   };
 
@@ -45,7 +44,6 @@ export class App extends Component {
     this.setState(prevState => {
       return {
         page: prevState.page + 1,
-        isLoading: true,
       };
     });
   };
@@ -55,18 +53,13 @@ export class App extends Component {
 
     try {
       if (prevState.query !== query || prevState.page !== page) {
-        const response = await FetchImages(query, page);
+        this.setState({ isLoading: true });
 
-        const images = response.hits;
-        const totalHits = response.totalHits;
-
+        const { hits: images, totalHits } = await FetchImages(query, page);
         const total = Math.ceil(totalHits / 12);
 
         if (total === 0) {
-          Notify.info(
-            'Sorry! There are no available images to display',
-            notiflixSettings
-          );
+          throw new Error();
         }
 
         this.setState(prevState => {
@@ -77,7 +70,12 @@ export class App extends Component {
           };
         });
       }
-    } catch (error) {}
+    } catch (error) {
+      Notify.info(
+        'Sorry! There are no available images to display',
+        notiflixSettings
+      );
+    }
   }
 
   render() {
