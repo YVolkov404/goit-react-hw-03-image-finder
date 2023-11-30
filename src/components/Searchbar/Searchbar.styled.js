@@ -14,6 +14,7 @@ export const Btn = styled.button`
   position: absolute;
   background-color: #ffe194;
   border: 2px solid #ffe194;
+  border-radius: 5px;
   cursor: pointer;
 `;
 
@@ -33,6 +34,7 @@ export const Input = styled(Field)`
   height: 44px;
   padding-left: 55px;
   border: 2px solid #ffe194;
+  border-radius: 5px;
   font-size: 18px;
   color: #4c4c6d;
 
