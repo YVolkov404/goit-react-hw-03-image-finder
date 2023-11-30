@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal';
-import { LargeImage, className, overlayClassName } from './Modal.styled';
+import { LargeImage, overlayClassName } from './Modal.styled';
 
 ReactModal.setAppElement('#root');
 
@@ -8,8 +8,7 @@ export const Modal = ({ largeImageURL, closeModal, modalIsOpen }) => {
     <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      className={className}
-      overlayClassName={overlayClassName}
+      style={overlayClassName}
       shouldCloseOnOverlayClick={true}
     >
       <LargeImage src={largeImageURL} />

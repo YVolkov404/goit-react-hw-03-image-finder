@@ -46,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
     img {
       width: 100%;
       display: block;
+      object-fit: cover;
     }
 
     ${

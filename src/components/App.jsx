@@ -18,10 +18,10 @@ export class App extends Component {
   };
 
   async componentDidMount() {
-    const { query } = this.state;
+    // const { query } = this.state;
 
     try {
-      const response = await FetchImages(query);
+      const response = await FetchImages('ukraine');
       const images = response.hits;
 
       this.setState({
@@ -37,7 +37,7 @@ export class App extends Component {
       query: query,
       images: [],
       page: 1,
-      isLoading: false,
+      isLoading: true,
     });
   };
 

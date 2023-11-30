@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   min-width: 1280px;
+  max-width: 100vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -25,4 +26,5 @@ export const Header = styled.header`
   padding: 25px 80px 10px 80px;
   background-color: #64b5f6;
   box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 0.75);
+  z-index: 999;
 `;
